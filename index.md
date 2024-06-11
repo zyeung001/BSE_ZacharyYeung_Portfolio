@@ -54,7 +54,7 @@ For your first milestone, describe what your project is and how you plan to buil
 - What your plan is to complete your project
 - 
 # Starter Project
-For my starter project, I created the game console. I chose this project because it seemed coolest out of all the starter projects. A challenge when creating this starter project is soldering. I accidentally burnt some parts with the solder, but my game console still works. 
+For my starter project, I created the game console. I chose this project because it seemed coolest out of all the starter projects. A challenge when creating this starter project is soldering. I accidentally burnt some parts with the soldering iron, but my game console still works. 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jPP67IPjiLI?si=dl3Rb8Yc3AZLC_-7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
