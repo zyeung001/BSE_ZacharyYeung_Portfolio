@@ -2,8 +2,8 @@
 <!-- Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails! 
 -->
 
-<!-- The ball tracking robot uses object tracking to follow the ball. With the use of the python library, opencv, the camera can recognize faces, detect objects, and much more. 
--->
+The ball tracking robot uses object tracking to follow the ball. With the use of the python library, opencv, the camera can recognize faces, detect objects, and much more. This project uses a raspberry pi, pi camera, motor driver to control the motors, dc motors to turn the wheels, and a ultrasonic sensor to avoid object collision.
+
 
 <!-- You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:-->
   
@@ -55,7 +55,7 @@ For your first milestone, describe what your project is and how you plan to buil
 - What your plan is to complete your project
 -->
 # Starter Project
-For my starter project, I created the game console. I chose this project because it seemed coolest out of all the starter projects. This game console includes Tetris, Snake, Racing, Space Invaders, and Slots. How this game console works is whenever a button is pressed, it sends a signal to the chip, which is then displayed on the LED dot matrix. A challenge when creating this starter project is soldering. I accidentally burnt some parts with the soldering iron, but my game console still works. To avoid this, pay attention to what your soldering iron is touching.
+For my starter project, I created the game console. I chose this project because it seemed coolest out of all the starter projects. This game console includes Tetris, Snake, Racing, Space Invaders, and Slots. How this game console works is whenever a button is pressed, it sends a signal to the chip, which is then displayed on the LED dot matrix. A challenge when creating this starter project is soldering. I accidentally burnt some parts with the soldering iron, but my game console still works. To avoid this, pay attention to what your soldering iron is touching. 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jPP67IPjiLI?si=dl3Rb8Yc3AZLC_-7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
