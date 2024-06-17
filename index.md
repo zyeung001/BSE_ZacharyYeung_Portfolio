@@ -56,7 +56,12 @@ For your first milestone, describe what your project is and how you plan to buil
 - What your plan is to complete your project
 -->
 # Starter Project
-For my starter project, I created the game console. I chose this project because it seemed coolest out of all the starter projects. This game console includes Tetris, Snake, Racing, Space Invaders, and Slots. How this game console works is whenever a button is pressed, it sends a signal to the chip, which is then displayed on the LED dot matrix. The red switch is used to turn on the console, the yellow button is used pause the game, the green button starts the game, and the blue buttons controls the LEDs. A challenge when creating this starter project is soldering. I accidentally burnt some parts with the soldering iron, but my game console still works. To avoid this, pay attention to what your soldering iron is touching. 
+
+## Summary
+For my starter project, I created the game console. I chose this project because it seemed coolest out of all the starter projects. This game console includes Tetris, Snake, Racing, Space Invaders, and Slots. How this game console works is whenever a button is pressed, it sends a signal to the chip, which is then displayed on the LED dot matrix. The red switch is used to turn on the console, the yellow button is used pause the game, the green button starts the game, and the blue buttons controls the LEDs. 
+
+## Challenges
+A challenge when creating this starter project is soldering. I accidentally burnt some parts with the soldering iron, but my game console still works. To avoid this, pay attention to what your soldering iron is touching. 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jPP67IPjiLI?si=dl3Rb8Yc3AZLC_-7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
