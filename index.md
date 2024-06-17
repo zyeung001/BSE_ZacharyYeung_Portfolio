@@ -86,6 +86,7 @@ void loop() {
 -->
 
 # Bill of Materials
+
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
 | Canakit | Contains raspberry pi 4 model B, USB-C power supply, USB MicroSD card reader, MicroSD card, Micro HDMI to HDMI Cable, USB-C PiSwitch, and a case to hold the raspberry pi | $119.99 | <a href="https://www.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V5JTMV9/ref=sr_1_4?crid=22X0E9O7J0OR7&dib=eyJ2IjoiMSJ9.4wZGiZcG7IfVeIs8ylcbr2OWb6dH50gzNdgVi5k-In6pZ99iy8liii7M868UpE97GOIE-tJXQ5sL2XcKGA1wfI3W6mEWsgK1idpK8oIafYN0mPwGntfbsrb3OPGDrrX_z_IS2KvZHiD7YuKDlCT3yoBjG8MgoEI2mzIFUcrNXi1b6c5wWa4Xqelg7oT0q23ZSCpLWxLI0gNwJZzD2KRFfstDIQSowiGKue1IxIrNLrDMGPsu5nPkHQfMaD2q6Fg0okZFAKlMpuxR8LUT6OFyvHql6sTdWpX5KHS5CKILFRI.3BQRKh7cMpx9AbLHH4-SPcHXiP2O2R9GGyI4xqScCfg&dib_tag=se&keywords=raspberry%2Bpi%2B4&qid=1718655031&s=electronics&sprefix=raspberry%2Bpi%2B4%2B%2Celectronics%2C181&sr=1-4&th=1"> Link </a> |
