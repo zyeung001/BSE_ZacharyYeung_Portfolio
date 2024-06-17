@@ -15,7 +15,7 @@ The ball tracking robot uses object tracking to follow the ball. With the use of
 |:--:|:--:|:--:|:--:|
 | Zachary Yeung | Lynbrook High School | Engineering | Incoming Sophmore
 
-<img src="Zachary_Y.JPG" alt="Zachary Yeung Headshot" style="width:536px;height:715px;">
+<img src="Zachary_Y.JPG" alt="Zachary Yeung Headshot" style="width:536px;height:600px;">
   
 <!-- # Final Milestone
 
