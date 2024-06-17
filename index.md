@@ -77,17 +77,20 @@ void loop() {
 
 }
 ```
+-->
 
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
 Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
 
+
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Canakit | Starter kit that contains most things needed for raspberry pi | $ | <a href="https://www.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V5JTMV9/ref=sr_1_4?crid=22X0E9O7J0OR7&dib=eyJ2IjoiMSJ9.4wZGiZcG7IfVeIs8ylcbr2OWb6dH50gzNdgVi5k-In6pZ99iy8liii7M868UpE97GOIE-tJXQ5sL2XcKGA1wfI3W6mEWsgK1idpK8oIafYN0mPwGntfbsrb3OPGDrrX_z_IS2KvZHiD7YuKDlCT3yoBjG8MgoEI2mzIFUcrNXi1b6c5wWa4Xqelg7oT0q23ZSCpLWxLI0gNwJZzD2KRFfstDIQSowiGKue1IxIrNLrDMGPsu5nPkHQfMaD2q6Fg0okZFAKlMpuxR8LUT6OFyvHql6sTdWpX5KHS5CKILFRI.3BQRKh7cMpx9AbLHH4-SPcHXiP2O2R9GGyI4xqScCfg&dib_tag=se&keywords=raspberry%2Bpi%2B4&qid=1718655031&s=electronics&sprefix=raspberry%2Bpi%2B4%2B%2Celectronics%2C181&sr=1-4&th=1"> Link </a> |
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
+<!--
 # Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
 - [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
