@@ -57,12 +57,7 @@ One challenge I faced during the first milestone was setting up the Raspberry Pi
 ## What's Next?
 For the next milestone, I will code ball tracking, and making sure that the robot follows if the ball moves.
 
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
--->
+
 # Starter Project
 
 ## Summary
