@@ -42,12 +42,20 @@ For your second milestone, explain what you've worked on since your previous mil
 - What has been surprising about the project so far
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone 
+-->
 
 # First Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iaNKyVHkxec?si=Xjp5Ty7hhWd-078Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+## Summary
+My first milestone is wiring up all the components of the robot and making sure that it work. The components I used are the Raspberry Pi, DC motors, a motor driver, ultrasonic sensors, and a PiCamera. The Raspberry Pi controls all the components, the DC motors spin in certain directions, the motor driver amplifies current to the DC motors, the ultrasonic sensors calculates distance, and the PiCamera is a camera. Right now, the motors spin, the PiCamera works fine, and the ultrasonic sensors work. Later on I will write code so that it will track a ball using the PiCamera and if the ball moves, the robot will follow it. I will also use the ultrasonic sensors to avoid crashing into obstacles like the ball. 
+
+## Challenges
+One challenge I faced during the first milestone was setting up the Raspberry Pi. I was confused because not only did you have to set up the MicroSD card but you also had to download certain softwares to display the Raspberry Pi on a device. I also had a hard time setting up the SSH for the Raspberry Pi, which is a way to connect the command promt on your computer to the Raspberry Pi terminal. Everytime I tried connecting to the Raspberry Pi through SSH, it would say that it cannot find the Raspberry Pi. 
+
+## What's Next?
+For the next milestone, I will code ball tracking, and making sure that the robot follows if the ball moves.
 
 For your first milestone, describe what your project is and how you plan to build it. You can include:
 - An explanation about the different components of your project and how they will all integrate together
