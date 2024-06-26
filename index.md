@@ -33,18 +33,19 @@ For your final milestone, explain the outcome of your project. Key details to in
 -->
 
 
-<!-- # Second Milestone
+# Second Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p5iCH_pKMqY?si=aI6CMq3StmQI1W9M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+## Summary
+My second milestone is to code the ball tracking for my robot. The main components I used for the second milestone is the Raspberry Pi, PiCamera, and the motors. The code I wrote first creates a contour around the ball with x and y as the center of the contour. The x value is the width of the frame. Based on this, if the x value is on the right side of the frame, then the car moves to the right. If the x value is on the left side of the frame, then the car moves left. If the ball is around the middle of the frame, the car moves forward. Lastly, when no contours are detected, the car will turn constantly turn right until it finds anything red.
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
--->
+## Challenges 
+A challenge I faced was coding because I didn't really know how to code. So I used many different tutorials to create my ball tracking code. Another challenge I had was when I finished coding the ball tracking, the car would only move left and right to get to the ball, which was fixed when I added a middle range where it could move forward. The last challenge I had was setting up VNC so that I could run the Raspberry Pi without connecting it to my laptop. It only worked once for me, but now it never works.
+
+## What's Next?
+For the next milestone I am going to use the ultrasonic sensors to avoid colliding into object. I also might try to set up the VNC again.
+
 
 # First Milestone
 
