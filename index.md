@@ -2,8 +2,6 @@
 <!-- Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails! 
 -->
 
-Instructors are really pro
-
 The ball tracking robot uses object tracking to follow the ball. With the use of the Python Library, OpenCV, the camera can recognize faces, detect objects, and much more. This project uses a Raspberry Pi, Pi Camera, Motor Driver to control the motors, DC Motors to control the wheels, and a Ultrasonic Sensor to avoid object collision.
 
 
@@ -18,19 +16,32 @@ The ball tracking robot uses object tracking to follow the ball. With the use of
 | Zachary Yeung | Lynbrook High School | Engineering | Incoming Sophmore
 
 <img src="Zachary_Y.JPG" alt="Zachary Yeung Headshot" style="width:536px;height:736px;">
-  
-<!-- # Final Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+<!--
+# FInal Milestone
 For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE
 -->
+
+# Third Milestone
+
+**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aX1jdvUm-GE?si=vX5lI-Bp5G8XKcDt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Summary
+For my third milestone, I incorporated the ultrasonic sensor into my project. When the robot gets to a certain distance from an object, it will stop moving until the object moves further away. 
+
+## Challenges
+I wanted to utilize the two other ultrasonic sensors in my project, but when I used three ultrasonic sensors, the frames for my PiCamera dropped from 60 fps to around 3 fps. This made it pretty hard for my robot to track the ball, so I only used one. I tried using threading which is running multiple functions or codes at the same time. This method succeeded in keeping the fps at 60, however I realized I will have to cover the right and left for my modification. 
+
+## What's Next?
+I plan on adding a way for the robot to take the ball and bring it back to me using wheel encoders and servos.
 
 
 # Second Milestone
