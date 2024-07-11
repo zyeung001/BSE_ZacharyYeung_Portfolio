@@ -30,7 +30,6 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 # Third Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aX1jdvUm-GE?si=vX5lI-Bp5G8XKcDt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -38,10 +37,10 @@ For your final milestone, explain the outcome of your project. Key details to in
 For my third milestone, I incorporated the ultrasonic sensor into my project. When the robot gets to a certain distance from an object, it will stop moving until the object moves further away. 
 
 ## Challenges
-I wanted to utilize the two other ultrasonic sensors in my project, but when I used three ultrasonic sensors, the frames for my PiCamera dropped from 60 fps to around 3 fps. This made it pretty hard for my robot to track the ball, so I only used one. I tried using threading which is running multiple functions or codes at the same time. This method succeeded in keeping the fps at 60, however I realized I will have to cover the right and left for my modification. 
+I wanted to utilize the two other ultrasonic sensors in my project, but when I used three ultrasonic sensors, the frames for my PiCamera dropped from 60 fps to around 3 fps. This made it pretty hard for my robot to track the ball, so I only used one. I tried using threading which is running multiple functions or codes at the same time. This method succeeded in keeping the fps at 60, however I realized I will have to cover the right and left ultrasonic sensor for my modification. 
 
 ## What's Next?
-I plan on adding a way for the robot to take the ball and bring it back to me using wheel encoders and servos.
+I plan on adding a way for the robot to take the ball and bring it back to me by using servos to take the ball and implementing odometry using wheel encoders.
 
 
 # Second Milestone
@@ -84,11 +83,12 @@ A challenge when creating this starter project is soldering. I accidentally burn
 
 <!-- # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
+-->
 
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
-```c++
+```python
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -100,7 +100,6 @@ void loop() {
 
 }
 ```
--->
 
 # Bill of Materials
 
