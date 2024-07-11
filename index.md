@@ -88,17 +88,178 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
-```python
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
-}
+```
 
-void loop() {
-  // put your main code here, to run repeatedly:
+1 of 3,431
+(no subject)
+Inbox
 
-}
+Zachary Yeung <zachcnyeung@gmail.com>
+4:47 PM (0 minutes ago)
+to me
+
+import RPi.GPIO as GPIO
+import time
+import cv2
+from picamera2 import Picamera2
+import numpy as np
+from gpiozero import Servo
+
+GPIO.setwarnings(False)
+
+
+
+# To use Broadcom GPIO numbers instead of using board pi numbers
+GPIO.setmode(GPIO.BCM)
+
+
+servo_right = Servo(16)
+servo_left = Servo(12)
+
+servo_right.detach()
+servo_left.detach()
+
+in1,in2,in3,in4 = 2,3,17,27
+
+
+TRIG_FRONT = 23
+ECHO_FRONT = 24
+# Front Sensor
+GPIO.setup(TRIG_FRONT, GPIO.OUT)
+GPIO.setup(ECHO_FRONT, GPIO.IN)
+# Set the trig pin to low
+GPIO.output(TRIG_FRONT,False)
+   
+
+# Setup the ouput pins
+GPIO.setup([in1,in2,in3,in4],GPIO.OUT)
+
+GPIO.output([in1,in2,in3,in4],GPIO.LOW)
+
+
+
+# Create a Picamera2 instance
+picam2 = Picamera2()
+# Configure camera settings (adjust as needed)
+config = picam2.create_preview_configuration(main={"format": "XRGB8888", "size": (640, 100)})
+picam2.configure(config)
+picam2.start()
+
+
+def sensor():
+
+    # Wait 50 miliseconds and set trig to high for a new ultrasonic pulse transmission
+    time.sleep(0.05)
+    GPIO.output(TRIG_FRONT,True)
+   
+    # Set it back to low after this pulse to wait for the pulse to bounce back
+    time.sleep(0.00001)
+    GPIO.output(TRIG_FRONT,False)
+
+   
+    # If no pulse returns ECHO is 0 and it records the time. When there is a pulse ECHO becomes 1 and it also records the time using time.time()
+    while GPIO.input(ECHO_FRONT) == 0:
+        pulse_start = time.time()
+    while GPIO.input(ECHO_FRONT) == 1:
+        pulse_end = time.time()
+   
+    pulse_duration = pulse_end - pulse_start
+   
+    distance = (pulse_duration * 34300)/2     # distance = (time * speed of sound [34300 cm/sec]) / 2
+   
+    return round(distance,2)          # rounds the distance by two decimal places
+
+
+def motor(x, distance):
+    timer_started = False
+    start_time = 0
+    if distance > 5:
+        if x >= 430:   # turn right
+            GPIO.output(in1,GPIO.LOW)
+            GPIO.output(in2,GPIO.LOW)
+            GPIO.output(in3,GPIO.LOW)
+            GPIO.output(in4,GPIO.HIGH)
+               
+        elif x <= 210:   # turn left
+            GPIO.output(in1,GPIO.HIGH)
+            GPIO.output(in2,GPIO.LOW)
+            GPIO.output(in3,GPIO.LOW)
+            GPIO.output(in4,GPIO.LOW)
+           
+        elif 210 < x < 430:     # move forward
+            GPIO.output(in1,GPIO.HIGH)
+            GPIO.output(in2,GPIO.LOW)
+            GPIO.output(in3,GPIO.LOW)
+            GPIO.output(in4,GPIO.HIGH)
+           
+        elif len(contours) == 0:
+            GPIO.output(in1,GPIO.LOW)
+            GPIO.output(in2,GPIO.LOW)
+            GPIO.output(in3,GPIO.LOW)
+            GPIO.output(in4,GPIO.HIGH)
+       
+  #  elif distance <5:
+      # if not timer_started:
+           # start_time = time.time()
+          #  timer_started = True
+           
+    else:
+        GPIO.output([in1,in2,in3,in4],GPIO.LOW)
+
+        print("stop")
+       
+        servo_right.max()
+        servo_left.min()
+        time.sleep(1)
+        servo_right.min()
+        servo_left.max()
+        time.sleep(1)
+        servo_right.detach()
+        servo_left.detach()
+       
+
+       
+           
+while True:
+   
+    # Capture a frame from the camera
+    frame = picam2.capture_array()
+    hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+   
+
+    # Detect the ball (you'll need to adjust the color range)
+    lower_color = np.array([150, 140, 1])
+    upper_color = np.array([190, 255, 255])
+    mask = cv2.inRange(hsv_frame, lower_color, upper_color)
+    mask = cv2.erode(mask, None, iterations=2)
+    mask = cv2.dilate(mask, None, iterations=2)
+
+    # Find contours and track the ball
+    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    if contours:
+        ball_center = max(contours, key=cv2.contourArea)
+        ((x, y), radius) = cv2.minEnclosingCircle(ball_center)
+   
+        if radius > 10:
+            cv2.circle(frame, (int(x), int(y)), int(radius), (0, 255, 255), 2)
+           
+        distance = sensor()
+        print(distance)
+        motor(x, distance)
+       
+    # Display the frame
+    cv2.imshow("Ball Tracking", frame)
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord("q"):
+        break
+
+   
+# Clean up
+cv2.destroyAllWindows()
+picam2.stop()
+GPIO.cleanup()
+
+
 ```
 
 # Bill of Materials
