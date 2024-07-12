@@ -86,7 +86,7 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 -->
 
 # Code
-Encoder 
+## Encoder 
 ```
 import RPi.GPIO as GPIO
 import time
@@ -136,7 +136,7 @@ except KeyboardInterrupt:
     GPIO.output(in4,GPIO.LOW)
     GPIO.cleanup()
 ```
-Ball Tracking
+## Ball Tracking
 ```
 import RPi.GPIO as GPIO
 import time
