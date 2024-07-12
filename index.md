@@ -86,7 +86,6 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 -->
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```
 import RPi.GPIO as GPIO
@@ -188,11 +187,6 @@ def motor(x, distance):
             GPIO.output(in2,GPIO.LOW)
             GPIO.output(in3,GPIO.LOW)
             GPIO.output(in4,GPIO.HIGH)
-       
-  #  elif distance <5:
-      # if not timer_started:
-           # start_time = time.time()
-          #  timer_started = True
            
     else:
         GPIO.output([in1,in2,in3,in4],GPIO.LOW)
@@ -201,9 +195,6 @@ def motor(x, distance):
        
         servo_right.max()
         servo_left.min()
-        time.sleep(1)
-        servo_right.min()
-        servo_left.max()
         time.sleep(1)
         servo_right.detach()
         servo_left.detach()
