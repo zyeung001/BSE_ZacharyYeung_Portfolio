@@ -86,7 +86,57 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 -->
 
 # Code
+Encoder 
+```
+import RPi.GPIO as GPIO
+import time
 
+previous_right_value = 1
+right_ticks = 0
+
+previous_left_value = 1
+left_ticks = 0
+
+# Set up GPIO
+encoder_left = 13
+encoder_right = 26
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(encoder_right, GPIO.IN)
+GPIO.setup(encoder_left, GPIO.IN)
+
+try:
+    while True:
+        # Read the sensor's output
+        right_encoder_value = GPIO.input(encoder_right)
+        left_encoder_value = GPIO.input(encoder_left)
+        #print(f"Sensor value: {right_encoder_value}")
+         
+        if previous_right_value == 0 and right_encoder_value== 1:
+
+            right_ticks += 1
+            print(right_ticks)
+           
+        previous_right_value = right_encoder_value
+       
+        if previous_left_value == 0 and left_encoder_value == 1:
+            left_ticks += 1
+            print('left_ticks: ',left_ticks)
+           
+        previous_left_value = left_encoder_value
+       
+       
+
+        time.sleep(0.009)
+       
+
+except KeyboardInterrupt:
+    GPIO.output(in1,GPIO.LOW)
+    GPIO.output(in2,GPIO.LOW)
+    GPIO.output(in3,GPIO.LOW)
+    GPIO.output(in4,GPIO.LOW)
+    GPIO.cleanup()
+```
+Ball Tracking
 ```
 import RPi.GPIO as GPIO
 import time
