@@ -185,6 +185,24 @@ config = picam2.create_preview_configuration(main={"format": "XRGB8888", "size":
 picam2.configure(config)
 picam2.start()
 
+def move_forward():
+    GPIO.output(in1,GPIO.HIGH)
+    GPIO.output(in2,GPIO.LOW)
+    GPIO.output(in3,GPIO.LOW)
+    GPIO.output(in4,GPIO.HIGH)
+
+def turn_left():
+    GPIO.output(in1,GPIO.HIGH)
+    GPIO.output(in2,GPIO.LOW)
+    GPIO.output(in3,GPIO.LOW)
+    GPIO.output(in4,GPIO.LOW)
+
+def turn_right():
+    GPIO.output(in1,GPIO.LOW)
+    GPIO.output(in2,GPIO.LOW)
+    GPIO.output(in3,GPIO.LOW)
+    GPIO.output(in4,GPIO.HIGH)
+
 
 def sensor():
 
@@ -215,28 +233,16 @@ def motor(x, distance):
     start_time = 0
     if distance > 5:
         if x >= 430:   # turn right
-            GPIO.output(in1,GPIO.LOW)
-            GPIO.output(in2,GPIO.LOW)
-            GPIO.output(in3,GPIO.LOW)
-            GPIO.output(in4,GPIO.HIGH)
+            turn_right()
                
         elif x <= 210:   # turn left
-            GPIO.output(in1,GPIO.HIGH)
-            GPIO.output(in2,GPIO.LOW)
-            GPIO.output(in3,GPIO.LOW)
-            GPIO.output(in4,GPIO.LOW)
+            turn_left()
            
         elif 210 < x < 430:     # move forward
-            GPIO.output(in1,GPIO.HIGH)
-            GPIO.output(in2,GPIO.LOW)
-            GPIO.output(in3,GPIO.LOW)
-            GPIO.output(in4,GPIO.HIGH)
+            move_forward()
            
-        elif len(contours) == 0:
-            GPIO.output(in1,GPIO.LOW)
-            GPIO.output(in2,GPIO.LOW)
-            GPIO.output(in3,GPIO.LOW)
-            GPIO.output(in4,GPIO.HIGH)
+        elif len(contours) == 0:   # spin right in a circle when no red object found
+            turn_right()
            
     else:
         GPIO.output([in1,in2,in3,in4],GPIO.LOW)
