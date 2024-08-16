@@ -275,7 +275,7 @@ GPIO.output([in1,in2,in3,in4],GPIO.LOW)
 
 # Create a Picamera2 instance
 picam2 = Picamera2()
-# Configure camera settings (adjust as needed)
+# Configure camera settings
 config = picam2.create_preview_configuration(main={"format": "XRGB8888", "size": (640, 100)})
 picam2.configure(config)
 picam2.start()
