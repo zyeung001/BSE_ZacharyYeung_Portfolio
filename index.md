@@ -90,51 +90,146 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 ```
 import RPi.GPIO as GPIO
 import time
+import math
 
-previous_right_value = 1
-right_ticks = 0
-
-previous_left_value = 1
-left_ticks = 0
+GPIO.setmode(GPIO.BCM)
+# Motor pins
+ENA = 10  # Left motor enable
+ENB = 9  # Right motor enable
+in1,in2,in3,in4 = 2,3,17,27
+#in1,in2 right motor
+#in3,in4 left motor robot facing forward
 
 # Set up GPIO
-encoder_left = 13
-encoder_right = 26
+encoder_right = 13
+encoder_left = 26
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(encoder_right, GPIO.IN)
 GPIO.setup(encoder_left, GPIO.IN)
 
+# Calculations
+wheel_radius = 0.0325
+wheelbase = 0.157
+meters_per_tick = (2 * math.pi * wheel_radius) / 20
+
+
+previous_right_value = 1
+right_ticks = 0
+previous_right_ticks = 0
+
+previous_left_value = 1
+left_ticks = 0
+previous_left_ticks = 0
+
+theta = 0
+x = 0
+y = 0
+
+x_goal = 1
+y_goal = 1
+
+
+# PID gains
+Kp = 1.5
+Ki = 0.01
+Kd = 0.5
+
+# Initialize GPIO
+GPIO.setup([ENA,ENB,in1,in2,in3,in4],GPIO.OUT)
+
+# Initialize PWM for motor speed control
+pwm_left = GPIO.PWM(ENA, 1000)
+pwm_right = GPIO.PWM(ENB, 1000)
+pwm_left.start(0)
+pwm_right.start(0)
+
+# Set initial motor speeds
+target_speed = 100  # Desired speed (0-100)
+pwm_left.ChangeDutyCycle(target_speed)
+pwm_right.ChangeDutyCycle(target_speed)
+
+# Initialize PID variables
+prev_error = 0
+integral = 0
+
+# Main loop
 try:
     while True:
+        # Get current position (x, y, theta) from sensors
         # Read the sensor's output
         right_encoder_value = GPIO.input(encoder_right)
         left_encoder_value = GPIO.input(encoder_left)
-        #print(f"Sensor value: {right_encoder_value}")
-         
-        if previous_right_value == 0 and right_encoder_value== 1:
-
+       
+        if previous_right_value == 0 and right_encoder_value == 1:
             right_ticks += 1
-            print(right_ticks)
+            print("right_ticks: ",right_ticks)
            
         previous_right_value = right_encoder_value
        
         if previous_left_value == 0 and left_encoder_value == 1:
             left_ticks += 1
-            print('left_ticks: ',left_ticks)
+            print("left_ticks: ",left_ticks)
            
         previous_left_value = left_encoder_value
        
-       
 
-        time.sleep(0.009)
+        time.sleep(0.005)
        
+        delta_ticks_right = right_ticks - previous_right_ticks
+        delta_ticks_left = left_ticks - previous_left_ticks
+       
+        previous_left_ticks = left_ticks
+        previous_right_ticks = right_ticks
+       
+        distance_L = meters_per_tick * delta_ticks_left
+        distance_R = meters_per_tick * delta_ticks_right
+        distance_average = (distance_R + distance_L) / 2
+       
+        x_change = distance_average * math.cos(theta)
+        y_change = distance_average * math.sin(theta)
+        theta_change = (distance_R - distance_L) / wheelbase
+       
+        x = x + x_change
+        y = y + y_change
+        theta = theta + theta_change
+       
+         
+        theta_range = (theta - (2 * math.pi * math.floor((theta + math.pi)/(2*math.pi)))) #Keeps theta in the interval (0, 360)
+        theta_range = theta * 180/math.pi
+       
+        print(x,y,theta_range)
+           
+
+               
+        # Calculate error with respect to origin (0,0)
+        x_error = x - x_goal  # current x position - desired x position
+        y_error = y - y_goal  # current y position - desired y position
+
+        # Compute PID terms
+        error = Kp * (x_error + y_error)
+        integral += Ki * error
+        derivative = Kd * (error - prev_error)
+
+        # Compute control output (adjust motor speeds)
+        left_speed = target_speed + error + integral + derivative
+        right_speed = target_speed - error - integral - derivative
+       
+        print(left_speed)
+        print(right_speed)
+        # Apply control output to motors
+        pwm_left.ChangeDutyCycle(left_speed)
+        pwm_right.ChangeDutyCycle(right_speed)
+
+        # Update previous error
+        prev_error = error
+
+        # Sleep for a short time (loop rate)
+        time.sleep(0.1)
 
 except KeyboardInterrupt:
-    GPIO.output(in1,GPIO.LOW)
-    GPIO.output(in2,GPIO.LOW)
-    GPIO.output(in3,GPIO.LOW)
-    GPIO.output(in4,GPIO.LOW)
     GPIO.cleanup()
+    pwm_left.stop()
+    pwm_right.stop()
 ```
 ## Ball Tracking
 ```
