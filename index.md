@@ -37,10 +37,10 @@ For your final milestone, explain the outcome of your project. Key details to in
 For my third milestone, I incorporated the ultrasonic sensor into my project. When the robot gets to a certain distance from an object, it will stop moving until the object moves further away. 
 
 ## Challenges
-I wanted to utilize the two other ultrasonic sensors in my project, but when I used three ultrasonic sensors, the frames for my PiCamera dropped from 60 fps to around 3 fps. This made it pretty hard for my robot to track the ball, so I only used one. I tried using threading which is running multiple functions or codes at the same time. This method succeeded in keeping the fps at 60, however I realized I will have to cover the right and left ultrasonic sensor for my modification. 
+I wanted to utilize the two other ultrasonic sensors in my project, but when I used three ultrasonic sensors, the frames for my PiCamera dropped from 30 fps to around 5 fps. This made it pretty hard for my robot to track the ball, so I only used one. I tried using threading which is running multiple functions or codes at the same time. This method succeeded in keeping the frame rates high, however I realized I will have to cover the right and left ultrasonic sensor for my modification. 
 
 ## What's Next?
-I plan on adding a way for the robot to take the ball and bring it back to me by using servos to take the ball and implementing odometry using wheel encoders.
+I plan on adding a way for the robot to take the ball and bring it back to me by using servos to take the ball and implementing PID control.
 
 
 # Second Milestone
@@ -51,7 +51,7 @@ I plan on adding a way for the robot to take the ball and bring it back to me by
 My second milestone is to code the ball tracking for my robot. The main components I used for the second milestone is the Raspberry Pi, PiCamera, and the motors. The code I wrote first creates a contour around the ball with x and y as the center of the contour. The x value is the width of the frame. Based on this, if the x value is on the right side of the frame, then the car moves to the right. If the x value is on the left side of the frame, then the car moves left. If the ball is around the middle of the frame, the car moves forward. Lastly, when no contours are detected, the car will turn constantly turn right until it finds anything red.
 
 ## Challenges 
-A challenge I faced was coding because I didn't really know how to code. So I used many different tutorials to create my ball tracking code. Another challenge I had was when I finished coding the ball tracking, the car would only move left and right to get to the ball, which was fixed when I added a middle range where it could move forward. The last challenge I had was setting up VNC so that I could run the Raspberry Pi without connecting it to my laptop. It only worked once for me, but now it never works.
+A challenge I faced was coding because I didn't really know how to code. So I used many different tutorials to create my ball tracking code. Another challenge I had was when I finished coding the ball tracking, the car would only move left and right to get to the ball, which was fixed when I added a middle range where it could move forward. The last challenge I had was setting up VNC so that I could run the Raspberry Pi without connecting it to my laptop. It only worked once for me, but now it doesn't work anymore.
 
 ## What's Next?
 For the next milestone I am going to use the ultrasonic sensors to avoid colliding into object. I also might try to set up the VNC again.
@@ -86,7 +86,7 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 -->
 
 # Code
-## Encoder 
+## PID control 
 ```
 import RPi.GPIO as GPIO
 import time
