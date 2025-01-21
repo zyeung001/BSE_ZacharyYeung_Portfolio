@@ -360,7 +360,7 @@ while True:
     hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
    
 
-    # Detect the ball (you'll need to adjust the color range)
+    # Detect the ball
     lower_color = np.array([150, 140, 1])
     upper_color = np.array([190, 255, 255])
     mask = cv2.inRange(hsv_frame, lower_color, upper_color)
